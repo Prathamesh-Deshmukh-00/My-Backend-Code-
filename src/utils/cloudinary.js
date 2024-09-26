@@ -20,13 +20,12 @@ const uploadOnCloudinary = async function (localFilePath) {
             resource_type: "auto"
         });
 
-        console.log(response);
-        console.log("Response URL is:", response.url);
+        console.log("Cloudinary response:", response);
         return response;
 
     } catch (error) {
         console.error("Error during upload:", error);
-        return null; // returning null or handling it as needed
+        return null;
 
     } finally {
         try {
