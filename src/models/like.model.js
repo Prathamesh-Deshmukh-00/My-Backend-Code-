@@ -1,35 +1,32 @@
-import mongoose , {mongo, Schema} from "mongoose";
-
+import mongoose, { Schema } from "mongoose";
 
 const likeSchema = new Schema(
-    {
-       
-       video : {
-        type : Schema.Types.ObjectId,
-        ref : "Video"
-       },
-       Comment : {
-        type : Schema.Types.ObjectId,
-        ref : "Comment"
-       },
-       Tweet : {
-        type : Schema.Types.ObjectId,
-        ref : "Tweet"
-       },
-       Owner : {
-        type : Schema.Types.ObjectId,
-        ref : "User"
-       },
-       LikedBy : {
-        type : Schema.Types.ObjectId,
-        ref : "User"
-       }
-
+  {
+    video: {
+      type: Schema.Types.ObjectId,
+      ref: "Video"
     },
-    {
-        timestamps : true 
+    comment: {
+      type: Schema.Types.ObjectId,
+      ref: "Comment"
+    },
+    tweet: {
+      type: Schema.Types.ObjectId,
+      ref: "Tweet"
+    },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    },
+    likedBy: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true
     }
-)
+  },
+  {
+    timestamps: true // Automatically adds createdAt and updatedAt fields
+  }
+);
 
-
-export const Like = mongoose.model("Like" , likeSchema) 
+export const Like = mongoose.model("Like", likeSchema);
